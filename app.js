@@ -24,7 +24,7 @@ function addBookToLibrary(title, author, pages, hasRead) {
   const newBook = new Book(title, author, pages, hasReadValue);
   myLibrary.push(newBook);
   displayBooks();
-  document.getElementById('new-book-button').style.display = 'block'; // Show the "New Book" button
+  document.getElementById('new-book-button').style.display = 'block';
 }
 
 function displayBooks() {
@@ -116,3 +116,7 @@ function closeBookForm() {
 }
 
 displayBooks();
+
+document.getElementById('dark-mode-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+});
