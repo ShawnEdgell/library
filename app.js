@@ -121,20 +121,3 @@ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
 
-const toggleButtons = document.querySelectorAll(".toggle-read-button");
-
-toggleButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // Toggle the read status by changing the data-read attribute
-    const currentReadStatus = button.getAttribute("data-read");
-    const newReadStatus = currentReadStatus === "true" ? "false" : "true";
-    button.setAttribute("data-read", newReadStatus);
-
-    // Change the background color based on the read status
-    if (newReadStatus === "true") {
-      button.style.backgroundColor = "green";
-    } else {
-      button.style.backgroundColor = "red";
-    }
-  });
-});
