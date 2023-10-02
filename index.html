@@ -1,13 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Practice</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Library App</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
+
 <body>
-    <h1?>Yo</h1>
+    <header>
+        <h1>My Library</h1>
+    </header>
+
+    <main>
+        <div id="book-form" style="display: none;">
+            <h2>Add a Book</h2>
+            <form id="add-book-form">
+                <label for="title">Title:</label>
+                <input type="text" id="title" required>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" required>
+
+                <label for="pages">Pages:</label>
+                <input type="number" id="pages" required>
+
+                <label for="has-read">Have you read this book?</label>
+                <select id="has-read">
+                    <option value="null">Select</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+
+                <div class="add-book-button">
+                    <button type="submit">Add Book</button>
+                    <button class="close-form-button">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <button id="new-book-button">NEW BOOK</button>
+
+        <div id="book-list">
+            <!-- Display books here -->
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
+
 </html>
