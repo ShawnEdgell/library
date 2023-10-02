@@ -20,9 +20,11 @@ function Book(title, author, pages, hasRead) {
 }
 
 function addBookToLibrary(title, author, pages, hasRead) {
-  const newBook = new Book(title, author, pages, hasRead);
+  const hasReadValue = hasRead === 'yes' ? true : false;
+  const newBook = new Book(title, author, pages, hasReadValue);
   myLibrary.push(newBook);
   displayBooks();
+  document.getElementById('new-book-button').style.display = 'block'; // Show the "New Book" button
 }
 
 function displayBooks() {
@@ -41,8 +43,8 @@ function createBookCard(book, index) {
 
   const bookDetails = document.createElement('ul');
   const detailsArray = [
+     `Title: ${book.title}`,
       `Author: ${book.author}`,
-      `Title: ${book.title}`,
       `Pages: ${book.pages}`,
       `Read Yet: ${book.hasRead ? 'Yes' : 'No'}`
   ];
