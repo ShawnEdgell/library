@@ -25,6 +25,8 @@ function addBookToLibrary(title, author, pages, hasRead) {
   myLibrary.push(newBook);
   displayBooks();
   document.getElementById('new-book-button').style.display = 'block';
+  
+  showNotification("Book added successfully!");
 }
 
 function displayBooks() {
@@ -43,16 +45,16 @@ function createBookCard(book, index) {
 
   const bookDetails = document.createElement('ul');
   const detailsArray = [
-     `Title: ${book.title}`,
-      `Author: ${book.author}`,
-      `Pages: ${book.pages}`,
-      `Read Yet: ${book.hasRead ? 'Yes' : 'No'}`
+    { label: "Title", value: book.title },
+    { label: "Author", value: book.author },
+    { label: "Pages", value: book.pages },
+    { label: "Read Yet", value: book.hasRead ? 'Yes' : 'No' }
   ];
 
-  detailsArray.forEach((detail) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = detail;
-      bookDetails.appendChild(listItem);
+  detailsArray.forEach(detail => {
+    const listItem = document.createElement('li');
+    listItem.innerHTML = `<strong>${detail.label}:</strong> ${detail.value}`;
+    bookDetails.appendChild(listItem);
   });
 
   const toggleButton = createButton('Toggle Read Status', index, () => toggleReadStatus(index));
@@ -81,6 +83,8 @@ function toggleReadStatus(index) {
 function removeBook(index) {
   myLibrary.splice(index, 1);
   displayBooks();
+  
+  showNotification("Book removed successfully!");
 }
 
 document.getElementById('new-book-button').addEventListener('click', () => openBookForm());
@@ -121,3 +125,20 @@ displayBooks();
 document.getElementById('dark-mode-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
+
+function showNotification(message) {
+  const notification = document.getElementById('notification');
+  notification.textContent = message;
+  notification.style.opacity = '1';
+  notification.style.visibility = 'visible';
+
+  setTimeout(() => {
+      hideNotification();
+  }, 3000); // Hide notification after 3 seconds
+}
+
+function hideNotification() {
+  const notification = document.getElementById('notification');
+  notification.style.opacity = '0';
+  notification.style.visibility = 'hidden';
+}

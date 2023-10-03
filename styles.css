@@ -20,6 +20,10 @@ h1 {
   color: white;
 }
 
+h1, h2, #book-form h2 {
+  font-weight: bold; /* or 700 depending on the font's available weights */
+}
+
 li {
   font-size: 1rem;
 }
@@ -81,6 +85,15 @@ main {
   padding: 0;
   margin: 0;
   list-style: none;
+  font-weight: 900;
+}
+
+.book-card li {
+  font-weight: normal; /* or you can set it to 400 for regular font weight */
+}
+
+.book-card li strong {
+    font-weight: bold;
 }
 
 .book-card p {
@@ -230,6 +243,21 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+.notification {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 @media screen and (max-width: 900px) {
