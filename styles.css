@@ -1,12 +1,13 @@
-/* Reset default styles */
-:root {
-  --background-light: linear-gradient(90deg, #6e45e2, #89d4cf);
-  --background-dark: #222;
+/* Reset default stbyles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: var(--background-light);
+  background: linear-gradient(90deg, #6e45e2, #89d4cf);
 }
 
 header {
@@ -16,7 +17,6 @@ header {
 
 h1 {
   font-size: 3rem;
-  margin: 0;
   color: white;
 }
 
@@ -36,13 +36,19 @@ main {
 #title,
 #author,
 #pages,
-#has-read {
+#has-read,
+#book-form input[type="text"],
+#book-form input[type="checkbox"] {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  height: 40px; /* Adjust the height as needed */
+}
+
+#has-read, 
+.add-book-button {
+  margin-top: 10px;
 }
 
 #book-list {
@@ -63,18 +69,7 @@ main {
   grid-gap: 10px;
   padding: 20px;
   border-radius: 10px;
-  border: 1px solid #ccc; /* Add a border for a more modern look */
-}
-
-.book-card ul {
-  padding: 0;
-  margin: 0;
-}
-
-.book-card ul li {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  border: 1px solid #ccc;
 }
 
 .book-card h2 {
@@ -82,38 +77,51 @@ main {
   margin: 0;
 }
 
+.book-card ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .book-card p {
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  height: auto;
 }
 
-#pages {
-  width: 100%;
+#new-book-button {
+  font-size: 18px;
 }
 
-button {
+button,
+#book-form button[type="submit"],
+#new-book-button {
   background-color: #6e45e2;
   color: #fff;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   border-radius: 5px;
 }
 
-button:hover {
+button:hover,
+#book-form button[type="submit"]:hover,
+#new-book-button:hover {
   background-color: #89d4cf;
   transform: scale(1.05);
 }
 
-.add-book-button {
+.button-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between; /* or 'space-around' based on your preference */
+  margin-top: 20px;
+}
+
+.button-container button {
+  flex: 1; /* This makes each button take equal space */
+  margin: 0 10px; /* This adds some spacing between the buttons */
 }
 
 #book-form {
@@ -124,59 +132,6 @@ button:hover {
   border-radius: 10px;
   transition: opacity 0.3s ease-in-out;
   width: 400px;
-}
-
-#has-read, .add-book-button {
-  margin-top: 10px;
-}
-
-#book-form h2 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-#book-form label {
-  display: block;
-  margin-top: 10px;
-  font-size: 1rem;
-}
-
-#book-form input[type="text"],
-#book-form input[type="checkbox"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-#book-form button[type="submit"] {
-  background-color: #6e45e2;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#book-form button[type="submit"]:hover {
-  background-color: #89d4cf;
-  transform: scale(1.05);
-}
-
-#new-book-button {
-  background-color: #6e45e2;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 18px;
-}
-
-#new-book-button:hover,
-button:hover {
-  background-color: #89d4cf;
 }
 
 .close-form-button {
@@ -194,8 +149,19 @@ button:hover {
 }
 
 body.dark-mode {
-  background: var(--background-dark) !important;
+  background: #222;
   color: white;
+}
+
+body.dark-mode .book-card {
+  background-color: #333;
+  box-shadow: none;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+body.dark-mode #book-form {
+  background-color: #333;
 }
 
 #dark-mode-toggle {
@@ -207,32 +173,18 @@ body.dark-mode {
   position: absolute;
   top: 10px;
   right: 10px;
-  border-radius: 50px; /* Make the dark mode toggle button circular */
+  border-radius: 50px;
 }
 
 #dark-mode-toggle:hover {
   background-color: #444;
 }
 
-.book-card {
-  background-color: #fff; /* Light mode background color */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  height: 215px;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: 1fr auto auto auto 1fr;
-  grid-gap: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #ccc; /* Add a border for a more modern look */
-}
-
-body.dark-mode .book-card {
-  background-color: #333; /* Dark mode background color */
-  box-shadow: none;
-  border: 1px solid #444; /* Border for dark mode */
-  color: #fff; /* Text color for dark mode */
+.dark-mode-switch {
+  position: fixed;  /* ensures it's always in the same spot regardless of scroll */
+  top: 20px;
+  right: 20px;
+  z-index: 1000;    /* ensures it's on top of other elements */
 }
 
 .switch {
@@ -278,18 +230,6 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
-}
-
-.dark-mode-switch {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-body.dark-mode #book-form {
-  background-color: #333; /* Dark mode background color for the form */
-  border-radius: 10px; /* Add border radius to match light mode */
- 
 }
 
 @media screen and (max-width: 900px) {

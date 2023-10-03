@@ -111,8 +111,9 @@ function openBookForm() {
 function closeBookForm() {
   const bookForm = document.getElementById('book-form');
   bookForm.style.display = 'none';
-  document.querySelector('.close-form-button').style.display = 'none';
+  document.querySelector('.close-form-button').addEventListener('click', () => closeBookForm());
   document.getElementById('new-book-button').style.display = 'block';
+  
 }
 
 displayBooks();
@@ -120,4 +121,3 @@ displayBooks();
 document.getElementById('dark-mode-toggle').addEventListener('click', () => {
   document.body.classList.toggle('dark-mode');
 });
-
