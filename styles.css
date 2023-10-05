@@ -195,4 +195,8 @@ li span {
   .input form {
       width: 100%;
   }
+
+  button {
+    display: none;
+  }
 }
