@@ -119,25 +119,31 @@ li {
   gap: 5px;
   align-items: start;
   padding: 10px;
-  border-bottom: 1px solid #e1e1e1; /* Separator line */
+  border-bottom: 1px solid #e1e1e1;
   display: flex;
-  align-items: center;       /* Vertical Centering */
-  justify-content: space-between; /* Horizontal Alignment: content on left and delete button on right */
+  align-items: center;      
+  justify-content: space-between;
 }
 
 .delete {
-  margin-left: auto;                
+  margin-left: auto;
   order: 2;
-  background: none;             /* Remove default button background */
-  border: none;                 /* Remove default button border */
-  cursor: pointer;              /* Show a hand pointer on hover */
-  display: flex;                /* Make it a flex container */
-  align-items: center;          /* Vertically center the SVG */
-  justify-content: center;      /* Horizontally center the SVG */
-  width: 40px;                  /* Width including some space around SVG */
-  height: 40px;                 /* Height including some space around SVG */
-  padding: 10px;                /* Padding around the SVG for easy click */
-  position: relative;           /* Make it relative to position the SVG */
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; 
+  height: 32px;
+  padding: 4px;
+  position: relative;
+  outline: none;
+  opacity: 80%;
+}
+
+.delete:hover {
+  background-color: transparent;
 }
 
 li:last-child {
