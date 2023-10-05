@@ -1,58 +1,32 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Library App</title>
+    <link rel="icon" href="images/icon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-
 <body>
-    <header>
-      <h1>My Library</h1>
-      <div id="notification" class="notification"></div>
-      <div class="dark-mode-switch">
-        <label class="switch">
-          <input type="checkbox" id="dark-mode-toggle" />
-          <span class="slider round"></span>
-        </label>
-      </div>
-    </header>
 
-    <main>
-        <div id="book-form" style="display: none;">
-            <h2>Add a Book</h2>
-            <form id="add-book-form">
-                <label for="title">Title:</label>
-                <input type="text" id="title" required>
-
-                <label for="author">Author:</label>
-                <input type="text" id="author" required>
-
-                <label for="pages">Pages:</label>
-                <input type="number" id="pages" required>
-
-                <label for="has-read">Have you read this book?</label>
-                <select id="has-read">
-                    <option value="null">Select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                </select>
-
-                <div class="button-container">
+    <object id="deleteIcon" data="/images/delete-icon.svg" type="image/svg+xml" style="display:none;"></object>
+    <div class="container">
+        <div class="box">
+            <div class="input">
+                <form id="bookForm">
+                    <input type="text" autocomplete="off" id="titleInput" placeholder="Title" required>
+                    <input type="text" autocomplete="off" id="authorInput" placeholder="Author" required>
+                    <input type="number" autocomplete="off" id="pagesInput" placeholder="Number of pages" required>
                     <button type="submit">Add Book</button>
-                    <button type="button" class="close-form-button">Cancel</button>
-                </div>
-            </form>
+                </form>
+            </div>
+            <ul id="bookList">
+    <li class="bookHeader"><strong>Library</strong></li>
+    <!-- Your book entries will be appended here -->
+</ul>
         </div>
+    </div>
 
-        <button id="new-book-button"><strong>New Book +</strong></button>
-
-        <div id="book-list">
-            <!-- Display books here -->
-        </div>
-    </main>
-
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
-
 </html>

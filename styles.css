@@ -1,267 +1,205 @@
-/* Reset default stbyles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  background-color: orange;
+}
+
 body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: linear-gradient(90deg, #6e45e2, #89d4cf);
 }
 
-header {
-  text-align: center;
-  padding: 20px;
+.input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
-h1 {
-  font-size: 3rem;
+.input form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+
+.container {
+  max-width: 60rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex: 1;
+  height:100vh;
+  background-color: orange;
+}
+
+.box {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: white;
+  width: 90%;
+  min-height: 20%;
+  max-height: 80%;
+  padding: 20px 10px;
+}
+
+input[type="text"], input[type="number"] {
+  width: 70%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.4rem;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+}
+
+button {
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color: #333;
   color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
 }
 
-h1, h2, #book-form h2 {
-  font-weight: bold; /* or 700 depending on the font's available weights */
+button:hover {
+  background-color: #666;
+}
+
+ul {
+  max-height: 90%;
+  overflow-y: auto;
+  width: 100%;
+  padding-left: 20px;
 }
 
 li {
-  font-size: 1rem;
-}
-
-main {
+  list-style: none;
+  max-width: 95%;
+  font-size: 1.6rem;
+  position: relative;
+  padding-right: 40px;
+  line-height: 1.2;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
-}
-
-#title,
-#author,
-#pages,
-#has-read,
-#book-form input[type="text"],
-#book-form input[type="checkbox"] {
-  width: 100%;
+  gap: 5px;
+  align-items: start;
   padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border-bottom: 1px solid #e1e1e1;  /* Separator line */
 }
 
-#has-read, 
-.add-book-button {
+li:last-child {
+  border-bottom: none;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li span {
+  flex: 1;
+  min-width: 0;
+  margin-right: 60px;
+  overflow-wrap: break-word;
+}
+
+.delete {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  position: absolute;
+  right: 11px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-color: #999;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+}
+
+#bookForm {
   margin-top: 10px;
 }
 
-#book-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-  margin: 20px 0;
-}
-
-.book-card {
-  background-color: #fff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 400px;
-  height: 215px;
-  overflow: hidden;
-  display: grid;
-  grid-template-rows: 1fr auto auto auto 1fr;
-  grid-gap: 10px;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-}
-
-.book-card h2 {
-  font-size: 1.5rem;
-  margin: 0;
-}
-
-.book-card ul {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  font-weight: 900;
-}
-
-.book-card li {
-  font-weight: normal; /* or you can set it to 400 for regular font weight */
-}
-
-.book-card li strong {
-    font-weight: bold;
-}
-
-.book-card p {
-  margin: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#new-book-button {
-  font-size: 18px;
-}
-
-button,
-#book-form button[type="submit"],
-#new-book-button {
-  background-color: #6e45e2;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  border-radius: 5px;
-}
-
-button:hover,
-#book-form button[type="submit"]:hover,
-#new-book-button:hover {
-  background-color: #89d4cf;
-  transform: scale(1.05);
-}
-
-.button-container {
-  display: flex;
-  justify-content: space-between; /* or 'space-around' based on your preference */
-  margin-top: 20px;
-}
-
-.button-container button {
-  flex: 1; /* This makes each button take equal space */
-  margin: 0 10px; /* This adds some spacing between the buttons */
-}
-
-#book-form {
-  display: none;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  border-radius: 10px;
-  transition: opacity 0.3s ease-in-out;
-  width: 400px;
-}
-
-.close-form-button {
-  background-color: #d63e3e;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.bookHeader {
+  font-size: 2rem;
   margin-bottom: 10px;
-  font-size: 1rem;
+  /* position: sticky; 
+  top: 0; 
+  z-index: 1;
+  background-color: white;  */ 
+  padding: 5px 0;
 }
 
-.close-form-button:hover {
-  background-color: #ff7f7f;
-}
+@media only screen and (max-width: 758px) {
 
-body.dark-mode {
-  background: #222;
-  color: white;
-}
-
-body.dark-mode .book-card {
-  background-color: #333;
-  box-shadow: none;
-  border: 1px solid #444;
-  color: #fff;
-}
-
-body.dark-mode #book-form {
-  background-color: #333;
-}
-
-#dark-mode-toggle {
-  background-color: #333;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  border-radius: 50px;
-}
-
-#dark-mode-toggle:hover {
-  background-color: #444;
-}
-
-.dark-mode-switch {
-  position: fixed;  /* ensures it's always in the same spot regardless of scroll */
-  top: 20px;
-  right: 20px;
-  z-index: 1000;    /* ensures it's on top of other elements */
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #6e45e2;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-.notification {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-@media screen and (max-width: 900px) {
-  #book-list {
-      grid-template-columns: 1fr;
+  li {
+    font-size: 1rem;
   }
+
+  .bookHeader {
+    font-size: 1.6rem;
+  }
+
+  .container {
+      max-width: 30rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex: 1;
+      height:100vh;
+      background-color: orange;
+  }
+
+  .input {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0px;
+  }
+
+  button {
+      display: none;
+  }
+
+  input[type="text"], input[type="number"] {
+    font-size: 1.2rem;
+      width: 100%;
+  }
+
+  .input form {
+    width: 100%;
+}
 }
