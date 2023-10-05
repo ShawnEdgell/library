@@ -1,22 +1,49 @@
+/* Reset Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Base Styles */
 html {
   background-color: orange;
 }
 
 body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   display: flex;
   width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+/* Container Styles */
+.container {
+  max-width: 60rem;
+  flex: 1;
+  height: 100vh;
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Box Styles */
+.box {
+  background-color: white;
+  border-radius: 10px;
+  width: 90%;
+  min-height: 20%;
+  max-height: 80%;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* Form Styles */
 .input {
   display: flex;
   align-items: center;
@@ -25,37 +52,20 @@ body {
 }
 
 .input form {
+  width: 100%;
+  align-items: center;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: center;
-  width: 100%;
 }
 
-
-.container {
-  max-width: 60rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  flex: 1;
-  height:100vh;
-  background-color: orange;
+#bookForm {
+  margin-top: 10px;
 }
 
-.box {
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column-reverse;
-  background-color: white;
-  width: 90%;
-  min-height: 20%;
-  max-height: 80%;
-  padding: 20px 10px;
-}
-
-input[type="text"], input[type="number"] {
+/* Input Styles */
+input[type="text"],
+input[type="number"] {
   width: 70%;
   padding: 10px;
   margin: 10px 0;
@@ -66,14 +76,15 @@ input[type="text"], input[type="number"] {
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 input[type="number"] {
   -moz-appearance: textfield; /* For Firefox */
 }
 
+/* Button Styles */
 button {
   padding: 10px 15px;
   border-radius: 5px;
@@ -88,6 +99,7 @@ button:hover {
   background-color: #666;
 }
 
+/* List Styles */
 ul {
   max-height: 90%;
   overflow-y: auto;
@@ -103,17 +115,29 @@ li {
   padding-right: 40px;
   line-height: 1.2;
   display: flex;
-  border-bottom: 1px solid #e1e1e1;
-  display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 5px;
   align-items: start;
   padding: 10px;
-  border-bottom: 1px solid #e1e1e1;  /* Separator line */
+  border-bottom: 1px solid #e1e1e1; /* Separator line */
+  display: flex;
+  align-items: center;       /* Vertical Centering */
+  justify-content: space-between; /* Horizontal Alignment: content on left and delete button on right */
 }
 
-li:last-child {
-  border-bottom: none;
+.delete {
+  margin-left: auto;                
+  order: 2;
+  background: none;             /* Remove default button background */
+  border: none;                 /* Remove default button border */
+  cursor: pointer;              /* Show a hand pointer on hover */
+  display: flex;                /* Make it a flex container */
+  align-items: center;          /* Vertically center the SVG */
+  justify-content: center;      /* Horizontally center the SVG */
+  width: 40px;                  /* Width including some space around SVG */
+  height: 40px;                 /* Height including some space around SVG */
+  padding: 10px;                /* Padding around the SVG for easy click */
+  position: relative;           /* Make it relative to position the SVG */
 }
 
 li:last-child {
@@ -127,79 +151,42 @@ li span {
   overflow-wrap: break-word;
 }
 
-.delete {
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  position: absolute;
-  right: 11px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  background-color: #999;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 14px;
-  padding: 0;
-}
-
-#bookForm {
-  margin-top: 10px;
-}
-
 .bookHeader {
   font-size: 2rem;
-  margin-bottom: 10px;
-  /* position: sticky; 
-  top: 0; 
-  z-index: 1;
-  background-color: white;  */ 
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
+/* Media Queries */
 @media only screen and (max-width: 758px) {
-
   li {
-    font-size: 1rem;
+      font-size: 1rem;
   }
 
   .bookHeader {
-    font-size: 1.6rem;
+      font-size: 1.6rem;
   }
 
   .container {
       max-width: 30rem;
       display: flex;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
       flex: 1;
-      height:100vh;
-      background-color: orange;
+      height: 100vh;
   }
 
   .input {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       gap: 0px;
   }
 
-  button {
-      display: none;
-  }
-
-  input[type="text"], input[type="number"] {
-    font-size: 1.2rem;
+  input[type="text"],
+  input[type="number"] {
+      font-size: 1.2rem;
       width: 100%;
   }
 
   .input form {
-    width: 100%;
-}
+      width: 100%;
+  }
 }
